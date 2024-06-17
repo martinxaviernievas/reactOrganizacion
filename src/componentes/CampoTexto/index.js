@@ -2,10 +2,11 @@ import { useState } from "react"
 import "./CampoTexto.css"
 
 const CampoTexto = (props) => {
-    const [valor,actualizarValor] = useState("Harland")
-    console.log("Datos", props)
     const placeholderModificado = `${props.placeholder}...`
     
+    // Destructuracion
+    const { type = "text" } = props
+
     const manejarCambio = (e) => {
         props.actualizarValor(e.target.value)
     }    
@@ -16,6 +17,7 @@ const CampoTexto = (props) => {
             required={props.required} 
             value={props.valor}
             onChange={manejarCambio}
+            type = {type}
         />
          
     </div>
